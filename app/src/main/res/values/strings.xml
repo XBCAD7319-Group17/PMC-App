@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">PMCMA</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+    <string name="welcome_to_pmcma">Welcome to PMCMA !</string>
+    <string name="empower_uplift_unite_pmcma_where_compassion_meets_community">Empower, Uplift, Unite: PMCMA, where Compassion Meets Community</string>
+    <string name="please_enter_your_email">Please enter your email</string>
+    <string name="please_enter_your_password">Please enter your password</string>
+    <string name="welcome_back_to_pmcma">Welcome back to PMCMA!</string>
+    <string name="log_in_to_stay_connected_with_our_community_and_grow_in_faith">Log in to stay connected with our community and grow in faith</string>
+    <string name="login">Login</string>
+    <string name="click_here_to_sign_up">Click here to sign up</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="house_address">House Address</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="join_the_pmcma_family">Join the PMCMA family!</string>
+    <string name="sign_up_to_experience_fellowship_receive_updates_and_deepen_your_spiritual_journey">Sign up to experience fellowship, receive updates, and deepen your spiritual journey.</string>
+    <string name="back_to_login_page">Back to Login Page</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

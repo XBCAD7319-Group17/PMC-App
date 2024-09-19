@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tan"
+    tools:context=".About">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center_horizontal">
+
+        <!-- Logo at the top center -->
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/pmclogo"
+        android:contentDescription="Logo" />
+
+        <!-- Basic info text -->
+        <TextView
+            android:id="@+id/basicInfoTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="We are a church in the Wesleyan tradition situated in the New Germany area of Pinetown, KwaZulu-Natal. We seek to care for the community that we form a part of through the means that Christ has blessed us with - love, mercy, kindness, compassion. Our mission outreach projects (John Wesley School, Sizanani Academy of Sewing and Design, Phakamisa Economic Empowerment Projects, Greenfields Retirement Centre)."
+            android:textSize="18sp"
+            android:textColor="@color/caramel_brown"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:textAlignment="center" />
+
+        <!-- Gallery Section with GridLayout -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:columnCount="3"
+            android:rowCount="8"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <!-- First Row of Images -->
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:src="@drawable/pmcevent"
+            android:contentDescription="Gallery Image 1" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:src="@drawable/pmc"
+            android:contentDescription="Gallery Image 2" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:src="@drawable/outsidegf"
+            android:contentDescription="Gallery Image 3" />
+
+            <!-- Add more rows similarly -->
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:src="@drawable/pmcgrannys"
+            android:contentDescription="Gallery Image 4" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:src="@drawable/pmceaster"
+            android:contentDescription="Gallery Image 5" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:src="@drawable/pmcharvest"
+            android:contentDescription="Gallery Image 6" />
+
+            <!-- Continue adding more rows until you reach at least 8 rows -->
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:src="@drawable/gardengf"
+                android:contentDescription="Gallery Image 4" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:src="@drawable/pmcfamily"
+                android:contentDescription="Gallery Image 5" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:src="@drawable/pmcdonations"
+                android:contentDescription="Gallery Image 6" />
+        </GridLayout>
+
+    </LinearLayout>
+</ScrollView>

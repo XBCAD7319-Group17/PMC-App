@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="chocolate_200">#FFCC9966</color>
+    <color name="chocolate_500">#FF8B4513</color>
+    <color name="chocolate_700">#FF5A2F0C</color>
+    <color name="espresso_200">#FF8B4513</color>
+    <color name="espresso_700">#FF5A2F0C</color>
+    <color name="tan">#E3CEB5</color>
+    <color name="caramel_brown">#B48763</color>
+    <color name="golden_brown_200">#FFDAB46D</color>
+    <color name="golden_brown_500">#FFFFD700</color>
+    <color name="golden_brown_700">#FFDAA520</color>
+    <color name="bronze_200">#FFCD7F32</color>
+    <color name="bronze_700">#FF8B4513</color>
+    <color name="grey">#ff424242</color>>
+    <color name="pmc_grey">#a1a599</color>
+    <color name="pmc_tan">#e0d5c1</color>
+    <color name="pmc_choc">#6D4C41</color>
+</resources>
