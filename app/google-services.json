@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "513524141411",
+    "project_id": "pmcma-5bd2c",
+    "storage_bucket": "pmcma-5bd2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513524141411:android:c30f9f85f09ca785e5d756",
+        "android_client_info": {
+          "package_name": "com.pmcmaApp.pmcma"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW5OlhLI7rprd4q7rxeSFAqTYNh6aQtSg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
