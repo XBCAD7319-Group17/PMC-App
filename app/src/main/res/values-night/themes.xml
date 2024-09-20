@@ -1,7 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.PMCMA" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/tan</item>
+        <item name="colorPrimaryVariant">@color/caramel_brown</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorSecondary">@color/bronze_200</item>
+        <item name="colorSecondaryVariant">@color/bronze_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
     </style>
 </resources>
