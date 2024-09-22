@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_about -> AboutFragment()
             R.id.nav_events -> EventsFragment()
             R.id.nav_profile -> ProfileFragment()
-
+            R.id.nav_donation -> DonationFragment()
             R.id.nav_logout -> {
                 // Handle logout logic
                 Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
