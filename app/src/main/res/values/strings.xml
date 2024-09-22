@@ -23,4 +23,22 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="forgot_password">Forgot Password?</string>
+    <string name="back">Back</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="edit_details">Edit Details</string>
+    <string name="please_enter_your_new_email_address">please enter your new email address</string>
+    <string name="please_enter_your_new_house_address">Please enter your new House address</string>
+    <string name="please_enter_your_new_phone_number">Please enter your new phone number</string>
+    <string name="prayer_request">Prayer Request</string>
+    <string name="baptism_request">Baptism Request</string>
+    <string name="confirmation_request">Confirmation Request</string>
+    <string name="other_request">Other Request</string>
+    <string name="about_us">About Us</string>
+    <string name="bible">Bible</string>
+    <string name="events">Events</string>
+    <string name="home">Home</string>
+    <string name="logout">Logout</string>
+    <string name="pmcma">PMCMA</string>
+    <string name="profile">Profile</string>
+    <string name="requests">Requests</string>
 </resources>

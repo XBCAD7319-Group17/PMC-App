@@ -30,11 +30,8 @@ class Register : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-
 
         // Typecasting
         phoneNumber = findViewById(R.id.phoneNumber)
@@ -42,19 +39,16 @@ class Register : AppCompatActivity() {
         RegEmail = findViewById(R.id.RegEmail)
         Regpassword = findViewById(R.id.Regpassword)
         RegconfirmPassword = findViewById(R.id.RegconfirmPassword)
-        btnBackToLogin = findViewById(R.id.btnBackToLogin) // Replace with your actual ID for btnBackToLogin
-        btnSignUp = findViewById(R.id.btnSignUp) // Replace with your actual ID for btnSignUp
+        btnBackToLogin = findViewById(R.id.btnBackToLogin)
+        btnSignUp = findViewById(R.id.btnSignUp)
         mAuth = FirebaseAuth.getInstance()
 
-
-        //initializing firebase
+        // Initializing Firebase
         FirebaseApp.initializeApp(this)
-        mAuth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
         // Set click listener for the back to login button
         btnBackToLogin.setOnClickListener {
-            // Start the Login activity when the back to login button is clicked
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
             finish() // Optional: Finish the current activity to remove it from the back stack
@@ -64,8 +58,6 @@ class Register : AppCompatActivity() {
         btnSignUp.setOnClickListener {
             SignUp()
         }
-
-
     }
 
     private fun SignUp() {
@@ -75,48 +67,42 @@ class Register : AppCompatActivity() {
         val pass = Regpassword.text.toString().trim()
         val confirmPassword = RegconfirmPassword.text.toString().trim()
 
-        //validate inputs
-
+        // Validate inputs
         if (phone.isBlank() || house.isBlank() || email.isBlank() || pass.isBlank() || confirmPassword.isBlank()) {
             Toast.makeText(this, "Please fill in all fields!", Toast.LENGTH_SHORT).show()
+            return
         }
 
-        //validate email format
+        // Validate email format
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             Toast.makeText(this, "Please enter a valid email address", Toast.LENGTH_SHORT).show()
+            return
         }
 
-        //validate password match
+        // Validate password match
         if (pass != confirmPassword) {
-            Toast.makeText(this, "Password and Confirm password do not match", Toast.LENGTH_SHORT)
-                .show()
+            Toast.makeText(this, "Password and Confirm password do not match", Toast.LENGTH_SHORT).show()
+            return
         }
 
-
-        //creating the user in firebase
+        // Creating the user in Firebase Authentication
         mAuth.createUserWithEmailAndPassword(email, pass)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-
-                    //successfully created the user
-                    val user = mAuth.currentUser
-                    val userId = user?.uid
-
-                    //prepare user data for Firestore
-                    val userData = hashMapOf(
-                        "email" to email,
-                        "phone" to phone,
-                        "houseAddress" to house
+                    // Successfully created the user
+                    val userId = mAuth.currentUser?.uid
+                    val userInfo = hashMapOf(
+                        "email" to email,           // Save email string
+                        "phone" to phone,           // Save phone string
+                        "houseAddress" to house     // Save house address string
                     )
 
                     // Save additional data in Firestore
                     if (userId != null) {
-                        db.collection("users").document(userId)
-                            .set(userData)
+                        db.collection("users").document(userId).set(userInfo)
                             .addOnSuccessListener {
-                                Toast.makeText(this, "You have successfully signed up", Toast.LENGTH_SHORT).show()
-
-                                // Navigate to the login page
+                                Toast.makeText(this, "User details have been saved", Toast.LENGTH_SHORT).show()
+                                // Navigate to login page after successful signup
                                 val intent = Intent(this@Register, Login::class.java)
                                 startActivity(intent)
                                 finish()
@@ -132,11 +118,10 @@ class Register : AppCompatActivity() {
             }
     }
 
-
+    // Handling different sign-up error cases
     private fun handleSignUpError(exception: Exception?) {
         when (exception) {
             is FirebaseAuthWeakPasswordException -> {
-                // Weak password
                 Toast.makeText(
                     this,
                     "Weak password. Password should be at least 6 characters",
@@ -145,17 +130,14 @@ class Register : AppCompatActivity() {
             }
 
             is FirebaseAuthInvalidCredentialsException -> {
-                // Invalid email format
                 Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show()
             }
 
             is FirebaseAuthUserCollisionException -> {
-                // Email already registered
                 Toast.makeText(this, "This email is already registered", Toast.LENGTH_SHORT).show()
             }
 
             else -> {
-                // General error
                 Toast.makeText(
                     this,
                     "Sign Up failed: ${exception?.localizedMessage}",

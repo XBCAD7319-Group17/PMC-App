@@ -1,6 +1,7 @@
 package com.pmcmaApp.pmcma
 
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -14,12 +15,17 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private lateinit var drawerLayout: DrawerLayout
+
+
+    private lateinit var drawerLayout: DrawerLayout // side nav
     private lateinit var bottomNavigationView: BottomNavigationView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
 
         initViews()
         setupToolbar()
@@ -87,6 +93,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_about -> AboutFragment()
             R.id.nav_events -> EventsFragment()
             R.id.nav_profile -> ProfileFragment()
+
             R.id.nav_logout -> {
                 // Handle logout logic
                 Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
@@ -106,4 +113,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             super.onBackPressed()
         }
     }
+
+
 }

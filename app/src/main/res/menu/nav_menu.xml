@@ -8,34 +8,51 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/baseline_home"
-            android:title="Home"/>
+            android:title="@string/home"/>
 
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/baseline_info"
-            android:title="About Us" />
+            android:title="@string/about_us" />
 
         <item
             android:id="@+id/nav_bible"
             android:icon="@drawable/baseline_bible"
-            android:title="Bible" />
+            android:title="@string/bible" />
         <item
             android:id="@+id/nav_events"
             android:icon="@drawable/baseline_events"
-            android:title="Events" />
+            android:title="@string/events" />
+
         <item
             android:id="@+id/nav_requests"
             android:icon="@drawable/baseline_requests"
-            android:title="Requests" />
+            android:title="@string/requests">
+            <menu>
+                <item
+                    android:id="@+id/nav_prayer_request"
+                    android:title="@string/prayer_request" />
+                <item
+                    android:id="@+id/nav_baptism_request"
+                    android:title="@string/baptism_request" />
+                <item
+                    android:id="@+id/nav_confirmation_request"
+                    android:title="@string/confirmation_request" />
+                <item
+                    android:id="@+id/nav_other_request"
+                    android:title="@string/other_request" />
+            </menu>
+        </item>
+
         <item
             android:id="@+id/nav_pmcma"
             android:icon="@drawable/baseline_pmcma"
-            android:title="PMCMA" />
+            android:title="@string/pmcma" />
 
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/baseline_profile"
-            android:title="Profile" />
+            android:title="@string/profile" />
 
 
 
@@ -46,7 +63,7 @@
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/baseline_lock"
-                android:title="Logout"/>
+                android:title="@string/logout"/>
 
         </menu>
     </item>
