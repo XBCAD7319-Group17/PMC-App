@@ -41,4 +41,5 @@
     <string name="pmcma">PMCMA</string>
     <string name="profile">Profile</string>
     <string name="requests">Requests</string>
+    <string name="donation">Donation</string>
 </resources>

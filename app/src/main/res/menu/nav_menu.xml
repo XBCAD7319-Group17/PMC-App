@@ -25,6 +25,11 @@
             android:title="@string/events" />
 
         <item
+            android:id="@+id/nav_donation"
+            android:icon="@drawable/baseline_events"
+            android:title="@string/donation" />
+
+        <item
             android:id="@+id/nav_requests"
             android:icon="@drawable/baseline_requests"
             android:title="@string/requests">
