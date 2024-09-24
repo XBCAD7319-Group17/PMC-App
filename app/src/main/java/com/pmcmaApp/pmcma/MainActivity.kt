@@ -3,6 +3,8 @@ package com.pmcmaApp.pmcma
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -19,7 +22,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private lateinit var drawerLayout: DrawerLayout // side nav
     private lateinit var bottomNavigationView: BottomNavigationView
-
+    private lateinit var auth: FirebaseAuth
+    private lateinit var navHeaderView: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,11 +40,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (savedInstanceState == null) {
             loadFragment(HomeFragment())
         }
+
+        // Initialize Firebase Auth
+        auth = FirebaseAuth.getInstance()
+
+        // Set user details in the navigation header
+        setUserDetailsInNavHeader()
     }
 
     private fun initViews() {
         drawerLayout = findViewById(R.id.drawer_layout)
         bottomNavigationView = findViewById(R.id.bottom_navigation)
+        val navigationView = findViewById<NavigationView>(R.id.nav_view)
+        navHeaderView = navigationView.getHeaderView(0)
     }
 
     private fun setupToolbar() {
@@ -84,6 +96,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
+    }
+
+    private fun setUserDetailsInNavHeader() {
+        val user = auth.currentUser
+        val userNameTextView = navHeaderView.findViewById<TextView>(R.id.userName)
+        val userEmailTextView = navHeaderView.findViewById<TextView>(R.id.userEmail)
+
+        if (user != null) {
+            // Set user email and display name (or default name)
+            userNameTextView.text = user.email ?: "Email not available"
+            userEmailTextView.text = user.email ?: "Email not available"
+        } else {
+            userNameTextView.text = "User"
+            userEmailTextView.text = "Email not available"
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
