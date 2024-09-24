@@ -65,6 +65,7 @@ dependencies {
     implementation("com.google.api-client:google-api-client:1.31.5")
     implementation("com.google.oauth-client:google-oauth-client-jetty:1.31.5")
     implementation("com.google.apis:google-api-services-calendar:v3-rev411-1.25.0")
+    implementation("com.android.volley:volley:1.2.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
