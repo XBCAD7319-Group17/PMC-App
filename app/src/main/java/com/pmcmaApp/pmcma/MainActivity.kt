@@ -1,5 +1,6 @@
 package com.pmcmaApp.pmcma
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -105,7 +106,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         if (user != null) {
             // Set user email and display name (or default name)
-            userNameTextView.text = user.email ?: "Email not available"
+            userNameTextView.text = user.displayName ?: "Display Name not available"
             userEmailTextView.text = user.email ?: "Email not available"
         } else {
             userNameTextView.text = "User"
@@ -123,7 +124,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_donation -> DonationFragment()
             R.id.nav_logout -> {
                 // Handle logout logic
+                auth.signOut()
                 Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this, Login::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK) // Clear stack
+                startActivity(intent)
+                finish()
                 return true
             }
             else -> HomeFragment()

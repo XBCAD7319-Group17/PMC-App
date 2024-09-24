@@ -13,11 +13,13 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.auth.UserProfileChangeRequest
 import java.lang.Exception
 
 class Register : AppCompatActivity() {
 
     // Variables for buttons
+    private lateinit var fullName: EditText
     private lateinit var phoneNumber: EditText
     private lateinit var houseAddress: EditText
     private lateinit var RegEmail: EditText
@@ -34,6 +36,7 @@ class Register : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         // Typecasting
+        fullName = findViewById(R.id.fullName)
         phoneNumber = findViewById(R.id.phoneNumber)
         houseAddress = findViewById(R.id.houseAddress)
         RegEmail = findViewById(R.id.RegEmail)
@@ -61,6 +64,7 @@ class Register : AppCompatActivity() {
     }
 
     private fun SignUp() {
+        val name = fullName.text.toString().trim()
         val phone = phoneNumber.text.toString().trim()
         val house = houseAddress.text.toString().trim()
         val email = RegEmail.text.toString().trim()
@@ -68,7 +72,7 @@ class Register : AppCompatActivity() {
         val confirmPassword = RegconfirmPassword.text.toString().trim()
 
         // Validate inputs
-        if (phone.isBlank() || house.isBlank() || email.isBlank() || pass.isBlank() || confirmPassword.isBlank()) {
+        if (name.isBlank() || phone.isBlank() || house.isBlank() || email.isBlank() || pass.isBlank() || confirmPassword.isBlank()) {
             Toast.makeText(this, "Please fill in all fields!", Toast.LENGTH_SHORT).show()
             return
         }
@@ -92,6 +96,7 @@ class Register : AppCompatActivity() {
                     // Successfully created the user
                     val userId = mAuth.currentUser?.uid
                     val userInfo = hashMapOf(
+                        "fullname" to name,         // Save fullname string
                         "email" to email,           // Save email string
                         "phone" to phone,           // Save phone string
                         "houseAddress" to house     // Save house address string
@@ -101,11 +106,22 @@ class Register : AppCompatActivity() {
                     if (userId != null) {
                         db.collection("users").document(userId).set(userInfo)
                             .addOnSuccessListener {
-                                Toast.makeText(this, "User details have been saved", Toast.LENGTH_SHORT).show()
-                                // Navigate to login page after successful signup
-                                val intent = Intent(this@Register, Login::class.java)
-                                startActivity(intent)
-                                finish()
+                                // Update user profile with display name
+                                mAuth.currentUser?.updateProfile(
+                                    UserProfileChangeRequest.Builder()
+                                        .setDisplayName(name)
+                                        .build()
+                                )?.addOnCompleteListener { profileUpdateTask ->
+                                    if (profileUpdateTask.isSuccessful) {
+                                        Toast.makeText(this, "User details have been saved", Toast.LENGTH_SHORT).show()
+                                        // Navigate to login page after successful signup
+                                        val intent = Intent(this@Register, Login::class.java)
+                                        startActivity(intent)
+                                        finish()
+                                    } else {
+                                        Toast.makeText(this, "Failed to update display name", Toast.LENGTH_SHORT).show()
+                                    }
+                                }
                             }
                             .addOnFailureListener { e ->
                                 Toast.makeText(this, "Failed to save additional data: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
