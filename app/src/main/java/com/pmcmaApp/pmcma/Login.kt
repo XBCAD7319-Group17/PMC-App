@@ -24,16 +24,26 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        // Initialize Firebase
+        FirebaseApp.initializeApp(this)
+        authentication = FirebaseAuth.getInstance()
+
+        // Check if user is already logged in
+        val currentUser = authentication.currentUser
+        if (currentUser != null) {
+            // User is signed in, go to MainActivity
+            val intent = Intent(this@Login, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+
         // Typecasting views
         logEmail = findViewById(R.id.logEmail)
         logPassword = findViewById(R.id.logPassword)
         loginButton = findViewById(R.id.btnLogin)
         btnSignUp = findViewById(R.id.btnSignUp)
         forgotPassword = findViewById(R.id.forgotPassword)
-
-        // Initialize Firebase
-        FirebaseApp.initializeApp(this)
-        authentication = FirebaseAuth.getInstance()
 
         // Set click listener for the login button
         loginButton.setOnClickListener {
