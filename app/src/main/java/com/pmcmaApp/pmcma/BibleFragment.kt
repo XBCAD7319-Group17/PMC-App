@@ -13,6 +13,7 @@ import com.android.volley.toolbox.Volley
 import com.google.firebase.firestore.FirebaseFirestore
 import org.json.JSONArray
 import org.json.JSONObject
+import java.util.TreeMap
 
 class BibleFragment : Fragment() {
 
@@ -133,7 +134,7 @@ class BibleFragment : Fragment() {
         val url = "https://api.scripture.api.bible/v1/bibles/9879dbb7cfe39e4d-01/chapters/$bookId.$chapterId/verses"
         val jsonObjectRequest = object : JsonObjectRequest(Request.Method.GET, url, null,
             { response ->
-                handleVersesResponse(response, bookId, chapterId) // Pass bookId and chapterId here
+                handleVersesResponse(response, bookId, chapterId)
             },
             { error ->
                 // Handle error
@@ -159,18 +160,70 @@ class BibleFragment : Fragment() {
         verseDropdown.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 val selectedVerse = verseDropdown.selectedItem.toString()
-                fetchVerseText(bookId, chapterId, selectedVerse) // Call fetchVerseText with bookId and chapterId
+                displayAllVerses(bookId, chapterId, selectedVerse)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {}
         })
+
     }
 
-    private fun fetchVerseText(bookId: String, chapterId: String, verse: String) {
+    private fun displayAllVerses(bookId: String, chapterId: String, selectedVerse: String) {
+        // Show the loading spinner and hide the verseTextView initially
+        progressBar.visibility = View.VISIBLE
+        verseTextView.visibility = View.GONE
+        verseTextView.text = ""
+
+        val verseCount = verseDropdown.adapter.count
+        val sortedVersesMap = TreeMap<Int, String>()
+
+        for (i in 1..verseCount) {
+            fetchVerseText(bookId, chapterId, i.toString()) { verseText, verseNumber ->
+                // Add the verse text to the map using the verse number as the key
+                val verseNumInt = verseNumber.toInt()
+                sortedVersesMap[verseNumInt] = verseText
+
+                // Check if all verses are fetched by comparing the size of the map
+                if (sortedVersesMap.size == verseCount) {
+                    val versesText = StringBuilder()
+                    for ((verseNum, text) in sortedVersesMap) {
+                        val formattedVerse = if (verseNum.toString() == selectedVerse) {
+                            "<b>$verseNum: $text</b>"
+                        } else {
+                            "$verseNum: $text"
+                        }
+                        versesText.append(formattedVerse).append("\n")
+                    }
+                    // Once all verses are fetched, hide the loading spinner and show the verseTextView
+                    progressBar.visibility = View.GONE
+                    verseTextView.text = android.text.Html.fromHtml(versesText.toString())
+                    verseTextView.visibility = View.VISIBLE
+                }
+            }
+        }
+    }
+
+
+    private fun fetchVerseText(bookId: String, chapterId: String, verse: String, callback: (String, String) -> Unit) {
         val url = "https://api.scripture.api.bible/v1/bibles/9879dbb7cfe39e4d-01/verses/$bookId.$chapterId.$verse?content-type=json&include-notes=false&include-titles=false&include-chapter-numbers=false&include-verse-numbers=false&include-verse-spans=false&use-org-id=false"
         val jsonObjectRequest = object : JsonObjectRequest(Request.Method.GET, url, null,
             { response ->
-                handleVerseTextResponse(response)
+                val verseData = response.getJSONObject("data")
+                val contentArray = verseData.getJSONArray("content")
+                val verseText = StringBuilder()
+
+                for (i in 0 until contentArray.length()) {
+                    val item = contentArray.getJSONObject(i)
+                    if (item.has("items")) {
+                        val itemsArray = item.getJSONArray("items")
+                        for (j in 0 until itemsArray.length()) {
+                            val verseItem = itemsArray.getJSONObject(j)
+                            verseText.append(verseItem.getString("text"))
+                        }
+                    }
+                }
+                // Return the fetched verse text and its number
+                callback(verseText.toString(), verse)
             },
             { error ->
                 // Handle error
@@ -183,6 +236,7 @@ class BibleFragment : Fragment() {
 
         requestQueue.add(jsonObjectRequest)
     }
+
 
     private fun handleVerseTextResponse(response: JSONObject) {
         val verseData = response.getJSONObject("data")
