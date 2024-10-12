@@ -19,8 +19,6 @@ import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-
-
     private lateinit var drawerLayout: DrawerLayout // side nav
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var auth: FirebaseAuth
@@ -29,8 +27,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
 
         initViews()
         setupToolbar()
@@ -122,6 +118,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_events -> EventsFragment()
             R.id.nav_profile -> ProfileFragment()
             R.id.nav_donation -> DonationFragment()
+            R.id.nav_requests -> BaptismRequest()
             R.id.nav_logout -> {
                 // Handle logout logic
                 auth.signOut()
@@ -133,6 +130,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 finish()
                 return true
             }
+
+
             else -> HomeFragment()
         }
         loadFragment(fragment)

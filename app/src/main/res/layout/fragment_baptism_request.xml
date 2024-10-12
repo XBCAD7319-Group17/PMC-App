@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".BaptismRequest">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/make_a_request_to_pmcma"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/full_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bptsmName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/full_name"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/email_address">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bptsmEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email_address"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textColorHint="#546E7A"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/phone_numberbptsm">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bptsmPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/phone_numberbptsm"
+            android:inputType="phone"
+            android:padding="12dp"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Spinner for selecting request type -->
+    <Spinner
+        android:id="@+id/requestTypeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:minHeight="48dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/special_requests_or_comments">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bptsmReq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/special_requests_or_comments"
+            android:inputType="textMultiLine"
+            android:minHeight="100dp"
+            android:padding="12dp"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/house_address">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bptsmHouse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/house_address"
+            android:inputType="text"
+            android:padding="12dp"
+            android:textColorHint="#546E7A"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"
+        android:text="@string/submit_request"
+        android:textColor="#455A64"
+        tools:ignore="VisualLintButtonSize" />
+
+    <Button
+        android:id="@+id/btn_back_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:padding="12dp"
+        android:text="@string/back_to_home"
+        android:textColor="@android:color/white"
+        tools:ignore="TextContrastCheck,VisualLintButtonSize" />
+</LinearLayout>

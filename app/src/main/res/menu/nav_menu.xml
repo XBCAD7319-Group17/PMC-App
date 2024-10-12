@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <group android:checkableBehavior="single">
-
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/baseline_home"
@@ -19,6 +17,7 @@
             android:id="@+id/nav_bible"
             android:icon="@drawable/baseline_bible"
             android:title="@string/bible" />
+
         <item
             android:id="@+id/nav_events"
             android:icon="@drawable/baseline_events"
@@ -33,20 +32,7 @@
             android:id="@+id/nav_requests"
             android:icon="@drawable/baseline_requests"
             android:title="@string/requests">
-            <menu>
-                <item
-                    android:id="@+id/nav_prayer_request"
-                    android:title="@string/prayer_request" />
-                <item
-                    android:id="@+id/nav_baptism_request"
-                    android:title="@string/baptism_request" />
-                <item
-                    android:id="@+id/nav_confirmation_request"
-                    android:title="@string/confirmation_request" />
-                <item
-                    android:id="@+id/nav_other_request"
-                    android:title="@string/other_request" />
-            </menu>
+
         </item>
 
         <item
@@ -58,10 +44,8 @@
             android:id="@+id/nav_profile"
             android:icon="@drawable/baseline_profile"
             android:title="@string/profile" />
-
-
-
     </group>
+
     <item
         android:title="">
         <menu>
@@ -69,7 +53,6 @@
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/baseline_lock"
                 android:title="@string/logout"/>
-
         </menu>
     </item>
 </menu>

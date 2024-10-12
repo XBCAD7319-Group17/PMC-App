@@ -42,19 +42,4 @@
     <string name="profile">Profile</string>
     <string name="requests">Requests</string>
     <string name="donation">Donation</string>
-
-    <!-- Donation Categories List (10 examples) -->
-    <string-array name="donation_categories">
-        <item>Tithes</item>
-        <item>Building Fund</item>
-        <item>Sunday Service Offering</item>
-        <item>Missions and Outreach</item>
-        <item>Childrens Ministry</item>
-        <item>Youth Ministry</item>
-        <item>Music and Worship</item>
-        <item>Pastoral Support</item>
-        <item>Community Support</item>
-        <item>Special Projects</item>
-    </string-array>
-
 </resources>
