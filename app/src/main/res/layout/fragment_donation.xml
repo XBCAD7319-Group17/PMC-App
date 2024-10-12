@@ -3,12 +3,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFF5F5F5"
     tools:context=".DonationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <!-- Welcome Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to the Methodist Church of SA Pinetown!"
+            android:textSize="24sp"
+            android:textColor="@color/espresso_700"
+            android:gravity="center"
+            android:paddingBottom="16dp"
+            android:fontFamily="sans-serif-light"/>
+
+        <!-- Subtitle Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please select a donation category:"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:gravity="center"
+            android:paddingBottom="12dp"
+            android:fontFamily="sans-serif"/>
+
+        <!-- Donation Categories Spinner -->
+        <Spinner
+            android:id="@+id/donationCategorySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/tan"
+            android:minHeight="48dp"
+            android:padding="12dp" />
+
+
+        <!-- Zapper Donation Button -->
+        <Button
+            android:id="@+id/btnDonateWithZapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Donate with Zapper"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/golden_brown_200"
+            android:padding="12dp"
+            android:layout_marginTop="24dp"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium" />
+
+    </LinearLayout>
 
 </FrameLayout>
