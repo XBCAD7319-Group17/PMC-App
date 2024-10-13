@@ -42,4 +42,41 @@
     <string name="profile">Profile</string>
     <string name="requests">Requests</string>
     <string name="donation">Donation</string>
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+
+    <!-- Donation Categories List (10 examples) -->
+    <string-array name="donation_categories">
+        <item>Tithes</item>
+        <item>Building Fund</item>
+        <item>Sunday Service Offering</item>
+        <item>Missions and Outreach</item>
+        <item>Children\'s Ministry</item>
+        <item>Youth Ministry</item>
+        <item>Music and Worship</item>
+        <item>Food donations</item>
+        <item>Special Projects</item>
+        <item>Pastoral Support</item>
+        <item>Community Support</item>
+        <item>Thanksgiving</item>
+        <item>Phakamisa</item>
+        <item>Sizanani</item>
+        <item>Greenfields</item>
+        <item>Education Fund</item>
+        <item>Medical Missions</item>
+        <item>Church Renovation</item>
+        <item>Disaster Relief</item>
+        <item>Missionary Support</item>
+        <item>Charitable Programs</item>
+        <item>Holiday Giving</item>
+        <item>Youth Empowerment</item>
+        <item>Technology Fund</item>
+        <item>Other</item>
+    </string-array>
+
+
+=======
+>>>>>>> 832ac0762c84d2d2aa8ee5c09d810cda650db580
+>>>>>>> Stashed changes
 </resources>

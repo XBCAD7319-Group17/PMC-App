@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,58 +6,132 @@
     android:background="#FFF5F5F5"
     tools:context=".DonationFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="16dp">
+        android:layout_height="match_parent">
 
-        <!-- Welcome Text -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Welcome to the Methodist Church of SA Pinetown!"
-            android:textSize="24sp"
-            android:textColor="@color/espresso_700"
-            android:gravity="center"
-            android:paddingBottom="16dp"
-            android:fontFamily="sans-serif-light"/>
-
-        <!-- Subtitle Text -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Please select a donation category:"
-            android:textSize="18sp"
-            android:textColor="#333333"
-            android:gravity="center"
-            android:paddingBottom="12dp"
-            android:fontFamily="sans-serif"/>
-
-        <!-- Donation Categories Spinner -->
-        <Spinner
-            android:id="@+id/donationCategorySpinner"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/tan"
-            android:minHeight="48dp"
-            android:padding="12dp" />
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
 
+            <!-- Welcome Text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome to the Methodist Church of SA Pinetown!"
+                android:textSize="24sp"
+                android:textColor="@color/espresso_700"
+                android:gravity="center"
+                android:paddingBottom="16dp"
+                android:fontFamily="sans-serif-light"/>
 
-        <!-- Zapper Donation Button -->
-        <Button
-            android:id="@+id/btnDonateWithZapper"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Donate with Zapper"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="@color/golden_brown_200"
-            android:padding="12dp"
-            android:layout_marginTop="24dp"
-            android:textSize="16sp"
-            android:fontFamily="sans-serif-medium" />
+            <!-- Subtitle Text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please select a donation category:"
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:gravity="center"
+                android:paddingBottom="12dp"
+                android:fontFamily="sans-serif"/>
 
-    </LinearLayout>
+            <!-- Donation Categories Spinner -->
+            <Spinner
+                android:id="@+id/donationCategorySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/tan"
+                android:minHeight="48dp"
+                android:padding="12dp" />
+
+            <!-- EditText for Custom Donation Category (hidden initially) -->
+            <EditText
+                android:id="@+id/otherDonationEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter your custom donation category"
+                android:visibility="gone"
+                android:padding="12dp"
+                android:background="@color/tan"
+                android:layout_marginTop="12dp"/>
+
+            <!-- Checkbox for Monetary Donation -->
+            <CheckBox
+                android:id="@+id/checkboxMonetaryDonation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="This is a monetary donation" />
+
+            <!-- Checkbox for Non-Monetary Donation -->
+            <CheckBox
+                android:id="@+id/checkboxNonMonetaryDonation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="This is a non-monetary donation" />
+
+            <!-- EditText for Entering Donation Amount (hidden initially) -->
+            <EditText
+                android:id="@+id/donationAmountEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter the amount"
+                android:inputType="numberDecimal"
+                android:padding="12dp"
+                android:background="@color/tan"
+                android:layout_marginTop="12dp"
+                android:visibility="gone" />
+
+            <!-- EditText for Non-Monetary Donation Description (hidden initially) -->
+            <EditText
+                android:id="@+id/nonMonetaryDescriptionEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Describe what you are donating"
+                android:padding="12dp"
+                android:background="@color/tan"
+                android:layout_marginTop="12dp"
+                android:visibility="gone" />
+
+            <!-- DatePicker for Non-Monetary Donation Date Range (hidden initially) -->
+            <DatePicker
+                android:id="@+id/donationDatePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:visibility="gone" />
+
+            <!-- Submit Donation Button -->
+            <Button
+                android:id="@+id/btnSubmitDonation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit Donation"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#4CAF50"
+                android:padding="12dp"
+                android:layout_marginTop="12dp"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <!-- Zapper Donation Button (hidden initially) -->
+            <Button
+                android:id="@+id/btnDonateWithZapper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Donate with Zapper"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="@color/golden_brown_200"
+                android:padding="12dp"
+                android:layout_marginTop="24dp"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>

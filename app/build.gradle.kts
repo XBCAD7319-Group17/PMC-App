@@ -62,7 +62,17 @@ dependencies {
     implementation("com.google.firebase:firebase-auth:23.0.0")
     implementation("com.google.firebase:firebase-firestore:25.1.0")
     implementation("com.google.firebase:firebase-database-ktx:21.0.0")
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< HEAD
+    implementation ("com.squareup.okhttp3:okhttp:4.9.3")
+    implementation ("com.sun.mail:android-activation:1.6.2")
+    implementation ("com.sun.mail:android-mail:1.6.2")
+=======
+
+>>>>>>> 832ac0762c84d2d2aa8ee5c09d810cda650db580
+>>>>>>> Stashed changes
     implementation("com.applandeo:material-calendar-view:1.9.2")
     implementation("com.google.api-client:google-api-client:1.31.5")
     implementation("com.google.oauth-client:google-oauth-client-jetty:1.31.5")
