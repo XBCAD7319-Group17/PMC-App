@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+  <TextView
+      android:id="@+id/ngo_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="NGO Name"
+      android:textSize="24sp"
+      android:textStyle="bold" />
+
+  <androidx.viewpager.widget.ViewPager
+      android:id="@+id/viewPager"
+      android:layout_width="match_parent"
+      android:layout_height="200dp"
+      android:layout_marginTop="16dp" />
+
+  <TextView
+      android:id="@+id/ngo_description"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="NGO Description"
+      android:layout_marginTop="16dp" />
+
+  <TextView
+      android:id="@+id/ngo_email"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Email: contact@ngo.org"
+      android:layout_marginTop="16dp"
+      android:autoLink="email"
+      android:textColor="@android:color/holo_blue_dark" />
+
+  <TextView
+      android:id="@+id/ngo_phone"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Phone: +123 456 7890"
+      android:layout_marginTop="8dp"
+      android:autoLink="phone"
+      android:textColor="@android:color/holo_blue_dark" />
+</LinearLayout>

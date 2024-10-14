@@ -42,9 +42,16 @@
     <string name="profile">Profile</string>
     <string name="requests">Requests</string>
     <string name="donation">Donation</string>
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
+    <string name="our_initiatives">Our Initiatives</string>
+
+        <string name="make_a_request_to_pmcma">Make a Request to PMCMA</string>
+        <string name="full_name">Full Name</string>
+        <string name="email_address">Email Address</string>
+        <string name="phone_numberbptsm">Phone Number</string>
+        <string name="special_requests_or_comments">Special Requests or Comments</string>
+        <string name="submit_request">Submit Request</string>
+        <string name="back_to_home">Back to Home</string>
+
 
     <!-- Donation Categories List (10 examples) -->
     <string-array name="donation_categories">
@@ -76,7 +83,7 @@
     </string-array>
 
 
-=======
->>>>>>> 832ac0762c84d2d2aa8ee5c09d810cda650db580
->>>>>>> Stashed changes
+    =======
+    >>>>>>> 832ac0762c84d2d2aa8ee5c09d810cda650db580
+    >>>>>>> Stashed changes
 </resources>
