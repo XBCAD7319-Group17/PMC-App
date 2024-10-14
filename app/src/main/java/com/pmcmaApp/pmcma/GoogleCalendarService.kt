@@ -8,7 +8,6 @@ import android.content.Context
 import android.util.Base64
 import java.io.ByteArrayInputStream
 import java.io.InputStream
-import java.util.Calendar
 
 class GoogleCalendarService(private val context: Context) {
 
